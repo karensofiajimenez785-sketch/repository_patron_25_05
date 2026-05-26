@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="3.1"
+             xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
+             https://jakarta.ee/xml/ns/persistence/persistence_3_1.xsd">
+
+    <persistence-unit name="miUnidad" transaction-type="RESOURCE_LOCAL">
+
+        <!-- Clase que mapea la tabla users -->
+        <class>com.ejemplo.entity.UserEntity</class>
+
+        <properties>
+            <!-- ============================
+                 CONFIGURACIÓN DE CONEXIÓN
+                 Cambia estos valores según tu BD
+                 ============================ -->
+            <property name="jakarta.persistence.jdbc.url"
+                      value="jdbc:mysql://localhost:3306/testdb?useSSL=false&amp;serverTimezone=UTC"/>
+            <property name="jakarta.persistence.jdbc.user"     value="karencita"/>
+            <property name="jakarta.persistence.jdbc.password" value="adso256"/>
+            <property name="jakarta.persistence.jdbc.driver"   value="com.mysql.cj.jdbc.Driver"/>
+
+            <!-- ============================
+                 CONFIGURACIÓN DE HIBERNATE
+                 ============================ -->
+            <!-- Muestra el SQL generado en consola (útil para aprender) -->
+            <property name="hibernate.show_sql"   value="true"/>
+            <!-- Formatea el SQL para legibilidad -->
+            <property name="hibernate.format_sql" value="true"/>
+            <!-- Crea/actualiza la tabla automáticamente
+                 Opciones: create | create-drop | update | validate | none
+                 En producción usa: validate -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+        </properties>
+
+    </persistence-unit>
+
+</persistence>
